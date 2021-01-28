@@ -1,2 +1,4 @@
 build/
 cmake-build-debug/
+/CMakeLists.txt.user
+/CMakeLists.txt.user.06d8c01
