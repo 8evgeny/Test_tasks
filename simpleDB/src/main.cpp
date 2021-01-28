@@ -12,9 +12,9 @@ int main(int argc, char** argv) {
 
   string oper;
   while (1) {
-    cout << "Ââåäèòå îïåðàöèþ:\n"
-         << "1 - Âñå çàïèñè:\n"
-         << "2 - Ïåðñîíà:\n"
+    cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¾Ð¿ÐµÑ€Ð°Ñ†Ð¸ÑŽ:\n"
+         << "1 - Ð’ÑÐµ Ð·Ð°Ð¿Ð¸ÑÐ¸:\n"
+         << "2 - ÐŸÐµÑ€ÑÐ¾Ð½Ð°:\n"
          << "3 - input new person:\n"
          << "4 - edit person:\n"
          << "5 - delete person:\n"
