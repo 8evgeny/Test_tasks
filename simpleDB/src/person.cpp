@@ -85,12 +85,12 @@ void Person::save_person() {
       file << "no"
            << "\n";
     file << this->live << "\n";
-    cout << "data saved in: " << this->name.toStdString() << "\n";
+    cout << "Данные сохранены в файле: " << this->name.toStdString() << "\n";
   }
   file.close();
 }
 void Person::input_name() {
-  cout << "\ninput name:\n";
+  cout << "\nВведите имя:\n";
   string iname;
   while (1) {
     cin >> iname;
@@ -101,13 +101,13 @@ void Person::input_name() {
     } else
       cout << "incorrect!\n";
   }
-  cout << "name: " << this->name.toStdString() << "\n";
+  cout << "Имя: " << this->name.toStdString() << "\n";
 }
 void Person::input_sex() {
   string isex;
-  cout << "\ninput sex:\n"
-       << "1 - male\n"
-       << "2 - female\n";
+  cout << "\nВведите пол:\n"
+       << "1 - Мужской\n"
+       << "2 - Женский\n";
   while (1) {
     cin >> isex;
     regex regexpr("[12]");
@@ -124,8 +124,8 @@ void Person::input_sex() {
 }
 QDate Person::input_bithday() {
   string ibighday;
-  cout << "\ninput bithday in format DD/MM/YYYY:\n";
-  //Р”Р°С‚Р° СЂРѕР¶РґРµРЅРёСЏ
+  cout << "\nВведите дату рождения в формате DD/MM/YYYY:\n";
+
   const QString DateFormat = "dd/MM/yyyy";
   while (1) {
     cin >> ibighday;
@@ -138,13 +138,13 @@ QDate Person::input_bithday() {
     } else
       cout << "incorrect!\n";
   }
-  cout << "data of bithday: "
+  cout << "Дата рождения: "
        << this->bithday.toString(DateFormat).toStdString() << "\n";
   return this->bithday;
 }
 QDate Person::input_death() {
   string ideath;
-  cout << "\ninput data of death in format DD/MM/YYYY:\n";
+  cout << "\nВведите дату смерти в формате DD/MM/YYYY:\n";
   const QString DateFormat = "dd/MM/yyyy";
   QDate death, current;
   while (1) {
@@ -175,7 +175,7 @@ QDate Person::input_death() {
 }
 void Person::input_growth(int max_growth) {
   string igrowth;
-  cout << "\ninput growth: \n";
+  cout << "\nВведите рост: \n";
   while (1) {
     cin >> igrowth;
     regex regexpr("[1-9]{1}[0-9]{0,2}");
@@ -188,11 +188,11 @@ void Person::input_growth(int max_growth) {
     } else
       cout << "incorrect!\n";
   }
-  cout << "\ngrowth: " << this->growth << "\n\n";
+  cout << "\nРост: " << this->growth << "\n\n";
 }
 void Person::input_weight(int max_weight) {
   string iweight;
-  cout << "\ninput weight: \n";
+  cout << "\nВведите вес: \n";
   while (1) {
     cin >> iweight;
     regex regexpr("[1-9]{1}[0-9]{0,2}");
@@ -205,13 +205,13 @@ void Person::input_weight(int max_weight) {
     } else
       cout << "incorrect!\n";
   }
-  cout << "\nweight: " << this->weight << "\n";
+  cout << "\nВес: " << this->weight << "\n";
 }
 void Person::input_nation() {
   string inations;
   vector<pair<unsigned, string>> listnations;
   print_nation(listnations);
-  cout << "\ninput nation. choose number from list:\n";
+  cout << "\nВведите национальность. Выберите номер из списка:\n";
   while (1) {
     cin >> inations;
     regex regexpr("[1-9]{1}[0-9]{0,2}");
@@ -225,7 +225,7 @@ void Person::input_nation() {
     } else
       cout << "incorrect!\n";
   }
-  cout << "nation: " << this->nation.toStdString() << "\n";
+  cout << "Национальность: " << this->nation.toStdString() << "\n";
 }
 
 Person::max Person::read_max() {

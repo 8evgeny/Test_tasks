@@ -16,11 +16,12 @@ void print_vector(vector<string>& v) {
 }
 
 void print_vector(vector<pair<unsigned,string>>& v) {
-
+    cout<<"Наций: "<<v.size()<<endl;
     for (auto element : v)  {
-        cout<<element.first<<" "<<element.second<<'\n';
-    }
-    cout<<'\n';
+    cout<<element.first<<" "<<element.second<<"\n";
+ }
+//    cout<<'\n';
+
 }
 
 QDate string_toqtate(string stringdate){
@@ -68,7 +69,7 @@ unsigned read_data(){
     dirDB.setPath(patch);
     QStringList listFiles = dirDB.entryList(QDir::Files);
     fill_vector(listFiles, v);
-    std::cout<<"Все записи базы данных:\n";
+    cout<<"Все записи базы данных:\n";
     print_vector(v);
     return v.size();
 }

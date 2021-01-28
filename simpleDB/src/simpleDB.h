@@ -6,8 +6,7 @@
 #include <iostream>
 #include <regex>
 #include <fstream>
-
-#include <windows.h>
+#include <Windows.h>
 #include "person.h"
 const QString settingsFile = "configDB.ini";
 void fill_vector(QStringList &, std::vector<std::string> &);

@@ -11,6 +11,7 @@ void print_nation(vector<pair<unsigned,string>>&nations){
     string stchar;
     pair<unsigned,string> p;
     unsigned i = 1;
+
     while (!is.eof()){
         is.get(c);
         if(c!='\n')stchar.push_back(c);
@@ -23,5 +24,6 @@ void print_nation(vector<pair<unsigned,string>>&nations){
     }
     is.close();
     print_vector(nations);
+
     cout<<'\n';
 }

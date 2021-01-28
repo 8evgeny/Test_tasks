@@ -6,22 +6,22 @@ using namespace std;
 
 class MBuf: public std::stringbuf {
 public:
-int sync() {
+int sync() override {
 fputs( str().c_str(), stdout );
 str( "" );
 return 0;
 }
 };
 
+int main() {
 
-
-int main(int argc, char** argv) {
-
-    SetConsoleOutputCP( CP_UTF8 );
-    setvbuf( stdout, nullptr, _IONBF, 0 );
+    SetConsoleCP(CP_UTF8);
+    SetConsoleOutputCP(CP_UTF8);
+    setvbuf( stdout, nullptr, _IONBF, 1000 );
 
     MBuf buf;
     std::cout.rdbuf( &buf );
+
 //    std::cout << "Russian: абвгд" << std::flush;
 
 //    _setmode(_fileno(stdout), _O_U8TEXT);
@@ -32,13 +32,13 @@ int main(int argc, char** argv) {
 
   string oper;
   while (1) {
-    cout << "Введите операцию:\n"
-         << "1 - Отобразить все записи базы данных:\n"
+    cout << "1 - Отобразить все записи базы данных:\n"
          << "2 - Просмотр существующей записи:\n"
          << "3 - Ввод новой записи:\n"
          << "4 - Редактирование существующей записи:\n"
          << "5 - Удаление записи:\n"
-         << "6 - Завершить работу:\n";
+         << "6 - Завершить работу:\n\n"
+         << "Введите операцию: "  ;
     cin >> oper;
     regex regexpr("[123456]");
     if (regex_match(oper, regexpr)) {
