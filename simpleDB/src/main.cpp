@@ -1,24 +1,44 @@
 #include <conio.h>
-
 #include <clocale>
-
 #include "simpleDB.h"
+#include <sstream>
 using namespace std;
+
+class MBuf: public std::stringbuf {
+public:
+int sync() {
+fputs( str().c_str(), stdout );
+str( "" );
+return 0;
+}
+};
+
+
+
 int main(int argc, char** argv) {
-  setlocale(LC_ALL, "Russian");
-  //    system("chcp 866");
-  //    SetConsoleCP(866);
-  //    SetConsoleOutputCP(866);
+
+    SetConsoleOutputCP( CP_UTF8 );
+    setvbuf( stdout, nullptr, _IONBF, 0 );
+
+    MBuf buf;
+    std::cout.rdbuf( &buf );
+//    std::cout << "Russian: абвгд" << std::flush;
+
+//    _setmode(_fileno(stdout), _O_U8TEXT);
+//  setlocale(LC_ALL, "Russian");
+//      system("chcp 65001");
+//      SetConsoleCP(65001);
+//      SetConsoleOutputCP(65001);
 
   string oper;
   while (1) {
     cout << "Введите операцию:\n"
-         << "1 - Все записи:\n"
-         << "2 - Персона:\n"
-         << "3 - input new person:\n"
-         << "4 - edit person:\n"
-         << "5 - delete person:\n"
-         << "6 - exit:\n";
+         << "1 - Отобразить все записи базы данных:\n"
+         << "2 - Просмотр существующей записи:\n"
+         << "3 - Ввод новой записи:\n"
+         << "4 - Редактирование существующей записи:\n"
+         << "5 - Удаление записи:\n"
+         << "6 - Завершить работу:\n";
     cin >> oper;
     regex regexpr("[123456]");
     if (regex_match(oper, regexpr)) {
@@ -28,7 +48,9 @@ int main(int argc, char** argv) {
       if (oper == "4") edit_data();
       if (oper == "5") remove_data();
       if (oper == "6") return 0;
-    } else
-      cout << "repeat input\n\n";
+    } else {
+        system("cls");
+          cout << "Повторите ввод\n\n";
+    }
   }
 }

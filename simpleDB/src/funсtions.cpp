@@ -68,7 +68,7 @@ unsigned read_data(){
     dirDB.setPath(patch);
     QStringList listFiles = dirDB.entryList(QDir::Files);
     fill_vector(listFiles, v);
-    std::cout<<"list all persons::\n";
+    std::cout<<"Все записи базы данных:\n";
     print_vector(v);
     return v.size();
 }
@@ -98,7 +98,7 @@ string num;
 unsigned i;
 unsigned number_person = read_data();
 while(1){
-    cout<<"input number for delete:\n";
+    cout<<"Введите номер для удаления:\n";
     cin>>num;
     regex regexpr ("[0-9]+");
     if (regex_match (num,regexpr)) {
