@@ -1,7 +1,4 @@
-#include <conio.h>
-#include <clocale>
 #include "simpleDB.h"
-#include <sstream>
 using namespace std;
 
 class MBuf: public std::stringbuf {

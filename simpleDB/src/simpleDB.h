@@ -8,6 +8,16 @@
 #include <fstream>
 #include <Windows.h>
 #include "person.h"
+
+#include <conio.h>
+#include <clocale>
+#include <sstream>
+#include <io.h>      // для функции _setmode
+#include <fcntl.h>   // для константы _O_U16TEXT
+#include <iostream>
+#include <string>    // для работы с классом wstring
+#include <codecvt>   // для работы с фасетом codecvt_utf8 локали
+
 const QString settingsFile = "configDB.ini";
 void fill_vector(QStringList &, std::vector<std::string> &);
 void print_vector(std::vector<std::string>&);
