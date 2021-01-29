@@ -11,7 +11,8 @@ void edit_data(){
     while(1){
     unsigned number_person = read_data();
     cout<<"Введите номер редактируемой записи:\n"<<
-        "Для возврата введите 0\n";
+        "Для возврата введите 0"<<flush;
+    cout<<" "<<endl<<" ";
     while(1){
         cin>>inum;
         regex regexpr ("[0-9]+");
