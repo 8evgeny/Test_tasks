@@ -5,7 +5,7 @@ void input_data(){
  system("cls");
  Person person;
  auto max = person.read_max();
- cout<<"input new data:\n";
+ cout<<"Вводим новые данные:\n";
  person.input_name();
  person.input_sex();
  person.input_bithday();
