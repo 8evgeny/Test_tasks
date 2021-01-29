@@ -52,8 +52,8 @@ void view_data(){
             i = stoi(num);
             if((i <= number_person) && (i > 0)) {
             break;
-            }else cout << "incorrect!\n";
-        } else  cout << "incorrect!\n";
+            }else cout << "Ошибка ввода!\n";
+        } else  cout << "Ошибка ввода!\n";
     }
    // i - номер записи для показа
     string name = name_from_munber(i);
@@ -106,8 +106,8 @@ while(1){
         i = stoi(num);
         if((i <= number_person) && (i > 0)) {
         break;
-        }else cout << "incorrect!\n";
-    } else  cout << "incorrect!\n";
+        }else cout << "Ошибка ввода!\n";
+    } else  cout << "Ошибка ввода!\n";
 }
 // i - номер записи для удаления
 QString name_to_del = QString::fromStdString(name_from_munber(i));

@@ -36,7 +36,7 @@ void input_data(){
                 person.input_death();
               }
               break;
-          } else  cout << "incorrect!\n";
+          } else  cout << "Ошибка ввода!\n";
       }
   }
 
@@ -57,7 +57,7 @@ void input_data(){
            person.live = true;
           }
        break;
-      } else  cout << "incorrect!\n";
+      } else  cout << "Ошибка ввода!\n";
   }
 
 }
