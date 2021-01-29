@@ -1,44 +1,51 @@
 #include <conio.h>
+#include <fcntl.h>
+#include <io.h>
+
 #include <clocale>
-#include "simpleDB.h"
 #include <sstream>
+
+#include "simpleDB.h"
 using namespace std;
 
-class MBuf: public std::stringbuf {
-public:
-int sync() override {
-fputs( str().c_str(), stdout );
-str( "" );
-return 0;
-}
-};
+// class MBuf : public std::stringbuf {
+// public:
+//  int sync() override {
+//    fputs(str().c_str(), stdout);
+//    str("");
+//    return 0;
+//  }
+//};
 
-int main() {
+int wmain() {
+  _setmode(_fileno(stdout), _O_U16TEXT);
+  _setmode(_fileno(stdin), _O_U16TEXT);
+  _setmode(_fileno(stderr), _O_U16TEXT);
 
-    SetConsoleCP(CP_UTF8);
-    SetConsoleOutputCP(CP_UTF8);
-    setvbuf( stdout, nullptr, _IONBF, 1000 );
+  //  SetConsoleCP(CP_UTF8);
+  //  SetConsoleOutputCP(CP_UTF8);
+  //  setvbuf(stdout, nullptr, _IONBF, 1000);
 
-    MBuf buf;
-    std::cout.rdbuf( &buf );
+  //  MBuf buf;
+  //  std::cout.rdbuf(&buf);
 
-//    std::cout << "Russian: абвгд" << std::flush;
+  //    std::cout << "Russian: абвгд" << std::flush;
 
-//    _setmode(_fileno(stdout), _O_U8TEXT);
-//  setlocale(LC_ALL, "Russian");
-//      system("chcp 65001");
-//      SetConsoleCP(65001);
-//      SetConsoleOutputCP(65001);
+  //    _setmode(_fileno(stdout), _O_U8TEXT);
+  //  setlocale(LC_ALL, "Russian");
+  //      system("chcp 65001");
+  //      SetConsoleCP(65001);
+  //      SetConsoleOutputCP(65001);
 
   string oper;
   while (1) {
-    cout << "1 - Отобразить все записи базы данных:\n"
-         << "2 - Просмотр существующей записи:\n"
-         << "3 - Ввод новой записи:\n"
-         << "4 - Редактирование существующей записи:\n"
-         << "5 - Удаление записи:\n"
-         << "6 - Завершить работу:\n\n"
-         << "Введите операцию: "  ;
+    wcout << "1 - Отобразить все записи базы данных:\n"
+          << "2 - Просмотр существующей записи:\n"
+          << "3 - Ввод новой записи:\n"
+          << "4 - Редактирование существующей записи:\n"
+          << "5 - Удаление записи:\n"
+          << "6 - Завершить работу:\n\n"
+          << "Введите операцию: ";
     cin >> oper;
     regex regexpr("[123456]");
     if (regex_match(oper, regexpr)) {
@@ -49,8 +56,8 @@ int main() {
       if (oper == "5") remove_data();
       if (oper == "6") return 0;
     } else {
-        system("cls");
-          cout << "Повторите ввод\n\n";
+      system("cls");
+      cout << "Повторите ввод\n\n";
     }
   }
 }

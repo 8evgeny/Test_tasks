@@ -91,16 +91,16 @@ void Person::save_person() {
 }
 void Person::input_name() {
   cout << "\nВведите имя:\n";
-  string iname;
-  while (1) {
-    cin >> iname;
-    regex regexpr("[A-Za-zА-Яа-яЁё]+");
-    if (regex_match(iname, regexpr)) {
-      this->name = QString::fromStdString(iname);
-      break;
-    } else
-      cout << "incorrect!\n";
-  }
+  wstring iname;
+  //  while (1) {
+  wcin >> iname;
+  //    regex regexpr("[A-Za-zА-Яа-яЁё]+");
+  //    if (regex_match(iname, regexpr)) {
+  this->name = QString::fromStdWString(iname);
+  //      break;
+  //    } else
+  //      cout << "incorrect!\n";
+  //  }
   cout << "Имя: " << this->name.toStdString() << "\n";
 }
 void Person::input_sex() {
@@ -138,8 +138,8 @@ QDate Person::input_bithday() {
     } else
       cout << "incorrect!\n";
   }
-  cout << "Дата рождения: "
-       << this->bithday.toString(DateFormat).toStdString() << "\n";
+  cout << "Дата рождения: " << this->bithday.toString(DateFormat).toStdString()
+       << "\n";
   return this->bithday;
 }
 QDate Person::input_death() {
