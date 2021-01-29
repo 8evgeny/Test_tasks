@@ -10,7 +10,7 @@ void edit_data(){
     cout<<"\nРедактирование данных о человеке:\n";
     while(1){
     unsigned number_person = read_data();
-    cout<<"Введите номер поля:\n"<<
+    cout<<"Введите номер редактируемой записи:\n"<<
         "Для возврата введите 0\n";
     while(1){
         cin>>inum;
@@ -29,7 +29,7 @@ void edit_data(){
 
     cout<<"Печать данных о человеке:\n";
     person.print();
- cout<<"Введите номер поля: \n";
+ cout<<"Введите номер поля для редактирования: \n";
  string num;
  while(1){
   cin>>num;
