@@ -1,5 +1,4 @@
 #include "person.h"
-
 #include "simpleDB.h"
 using namespace std;
 Person::Person() {
@@ -12,7 +11,7 @@ Person::Person() {
 Person::~Person(){};
 void Person::print() {
   std::cout << "1\tИмя: " << name.toStdString() << "\n"
-            << "2\tПол»: " << sex.toStdString() << "\n"
+            << "2\tПол: " << sex.toStdString() << "\n"
             << "3\tВозраст: " << age << "\n"
             << "4\tРост: " << growth << "\n"
             << "5\tВес: " << weight << "\n"
