@@ -11,8 +11,8 @@ void edit_data(){
     while(1){
     unsigned number_person = read_data();
     cout<<"Введите номер редактируемой записи:\n"<<
-        "Для возврата введите 0"<<flush;
-    cout<<" "<<endl<<" ";
+        "Для возврата введите 0   "<<flush;
+    cout<<endl;
     while(1){
         cin>>inum;
         regex regexpr ("[0-9]+");
@@ -23,7 +23,7 @@ void edit_data(){
             }else cout << "Ошибка ввода!\n";
         } else  cout << "Ошибка ввода!\n";
     }
-    if(i == 0)break;
+    if(i == 0){system("cls"); break;}
     // i - номер записи для показа
     string name = name_from_number(i);
     person.read_person(name);

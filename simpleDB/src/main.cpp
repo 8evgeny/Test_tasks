@@ -1,7 +1,7 @@
 #include "simpleDB.h"
 using namespace std;
 
-class MBuf: public std::stringbuf {
+class Buf_out: public std::stringbuf {
 public:
 int sync() override {
 fputs( str().c_str(), stdout );
@@ -16,8 +16,8 @@ int main() {
     SetConsoleOutputCP(CP_UTF8);
     setvbuf( stdout, nullptr, _IONBF, 0 );
 
-    MBuf buf;
-    std::cout.rdbuf( &buf );
+    Buf_out bufout;
+    std::cout.rdbuf( &bufout );
 
 //    std::cout << "Russian: абвгд" << std::flush;
 

@@ -89,7 +89,8 @@ void Person::save_person() {
   file.close();
 }
 void Person::input_name() {
-  cout << "\nВведите имя латиницей:\n";
+  cout << "\nВведите имя латиницей:   "<<flush;
+  cout<<endl;
   string iname;
   while (1) {
     cin >> iname;
