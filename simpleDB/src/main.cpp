@@ -14,7 +14,7 @@ int main() {
 
     SetConsoleCP(CP_UTF8);
     SetConsoleOutputCP(CP_UTF8);
-    setvbuf( stdout, nullptr, _IONBF, 1000 );
+    setvbuf( stdout, nullptr, _IONBF, 0 );
 
     MBuf buf;
     std::cout.rdbuf( &buf );

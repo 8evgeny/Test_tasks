@@ -19,17 +19,17 @@ void edit_data(){
             i = stoi(inum);
             if((i <= number_person) && (i >= 0)) {
                 break;
-            }else cout << "incorrect!\n";
-        } else  cout << "incorrect!\n";
+            }else cout << "Ошибка ввода!\n";
+        } else  cout << "Ошибка ввода!\n";
     }
     if(i == 0)break;
     // i - номер записи для показа
     string name = name_from_munber(i);
     person.read_person(name);
 
-    cout<<"print person:\n";
+    cout<<"Печать данных о человеке:\n";
     person.print();
- cout<<"input number: \n";
+ cout<<"Введите номер поля: \n";
  string num;
  while(1){
   cin>>num;
@@ -65,7 +65,7 @@ void edit_data(){
    }
   person.save_person();
    break;
-        }else  cout << "incorrect!\n";
+        }else  cout << "Ошибка ввода!\n";
         }
     }
 

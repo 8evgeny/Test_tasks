@@ -24,7 +24,9 @@ void input_data(){
  person.input_nation();
  string  ilive, isave;
  if(person.live){
-      cout<<"input 1 - live or 2 - death\n";
+      cout<<"Введите:\n"<<
+            "1 - человек жив\n"<<
+            "2 - человек умер\n";
       while(1){
           cin>>ilive;
           regex regexpr ("[12]");

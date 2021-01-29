@@ -90,16 +90,16 @@ void Person::save_person() {
   file.close();
 }
 void Person::input_name() {
-  cout << "\nВведите имя:\n";
+  cout << "\nВведите имя латиницей:\n";
   string iname;
   while (1) {
     cin >> iname;
-    regex regexpr("[A-Za-zА-Яа-яЁё]+");
+    regex regexpr("[A-Za-z]+");
     if (regex_match(iname, regexpr)) {
       this->name = QString::fromStdString(iname);
       break;
     } else
-      cout << "incorrect!\n";
+      cout << "Ошибка ввода!\n";
   }
   cout << "Имя: " << this->name.toStdString() << "\n";
 }
@@ -118,7 +118,7 @@ void Person::input_sex() {
         this->sex = "Женский";
       break;
     } else
-      cout << "incorrect!\n";
+      cout << "Ошибка ввода!\n";
   }
   cout << "sex: " << this->sex.toStdString() << "\n";
 }
@@ -136,7 +136,7 @@ QDate Person::input_bithday() {
       this->bithday = string_toqtate(ibighday);
       break;
     } else
-      cout << "incorrect!\n";
+      cout << "Ошибка ввода!\n";
   }
   cout << "Дата рождения: "
        << this->bithday.toString(DateFormat).toStdString() << "\n";
@@ -165,11 +165,11 @@ QDate Person::input_death() {
         this->death = death;
         break;
       } else
-        cout << "incorrect!\n";
+        cout << "Ошибка ввода!\n";
     } else
-      cout << "incorrect!\n";
+      cout << "Ошибка ввода!\n";
   }
-  cout << "data of death: " << this->death.toString(DateFormat).toStdString()
+  cout << "Дата смерти: " << this->death.toString(DateFormat).toStdString()
        << "\n";
   return this->death;
 }
@@ -184,9 +184,9 @@ void Person::input_growth(int max_growth) {
         this->growth = stoi(igrowth);
         break;
       } else
-        cout << "incorrect!\n";
+        cout << "Ошибка ввода!\n";
     } else
-      cout << "incorrect!\n";
+      cout << "Ошибка ввода!\n";
   }
   cout << "\nРост: " << this->growth << "\n\n";
 }
@@ -201,9 +201,9 @@ void Person::input_weight(int max_weight) {
         this->weight = stoi(iweight);
         break;
       } else
-        cout << "incorrect!\n";
+        cout << "Ошибка ввода!\n";
     } else
-      cout << "incorrect!\n";
+      cout << "Ошибка ввода!\n";
   }
   cout << "\nВес: " << this->weight << "\n";
 }
@@ -221,9 +221,9 @@ void Person::input_nation() {
         this->nation = QString::fromStdString(nation);
         break;
       } else
-        cout << "incorrect!\n";
+        cout << "Ошибка ввода!\n";
     } else
-      cout << "incorrect!\n";
+      cout << "Ошибка ввода!\n";
   }
   cout << "Национальность: " << this->nation.toStdString() << "\n";
 }
