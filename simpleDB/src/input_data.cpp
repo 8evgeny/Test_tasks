@@ -11,7 +11,7 @@ void input_data(){
  person.input_bithday();
  QDate current_date;
  current_date=QDate::currentDate();
- cout<<"current data: "<<current_date.toString().toStdString()<<"\n";
+ cout<<"Текущая дата: "<<current_date.toString().toStdString()<<"\n";
 
   int days = person.bithday.daysTo(current_date);
   int age = days/365;
@@ -46,8 +46,10 @@ void input_data(){
   }
   system("cls");
   person.print();
-  cout <<"input data correct ?:\n"
-         "1 - save\n2 - exit\n ";
+  cout <<"Введенные данные верны?:\n"<<
+         "Введите :"<<
+         "1 - cохраненить данные\n"<<
+         "2 - не сохранять\n";
   while(1){
       cin>>isave;
       regex regexpr ("[12]");

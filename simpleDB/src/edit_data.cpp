@@ -7,11 +7,11 @@ void edit_data(){
     unsigned i;
     string inum;
     system("cls");
-    cout<<"\nediting existing person:\n";
+    cout<<"\nРедактирование данных о человеке:\n";
     while(1){
     unsigned number_person = read_data();
-    cout<<"input number:\n"<<
-        "to exit input 0\n";
+    cout<<"Введите номер поля:\n"<<
+        "Для возврата введите 0\n";
     while(1){
         cin>>inum;
         regex regexpr ("[0-9]+");
@@ -24,7 +24,7 @@ void edit_data(){
     }
     if(i == 0)break;
     // i - номер записи для показа
-    string name = name_from_munber(i);
+    string name = name_from_number(i);
     person.read_person(name);
 
     cout<<"Печать данных о человеке:\n";

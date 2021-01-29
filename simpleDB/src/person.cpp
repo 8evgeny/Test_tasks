@@ -50,7 +50,7 @@ void Person::read_person(string& name) {
     file >> bithday;
     file >> death;
     file >> live;
-    cout << "\nread from file: " << name << "\n";
+    cout << "\nПрочитана запись: " << name << "\n";
     this->name = QString::fromStdString(name);
     this->sex = QString::fromStdString(sex);
     this->age = stoi(age);

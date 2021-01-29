@@ -44,7 +44,7 @@ void view_data(){
     string num;
     unsigned i;
     unsigned number_person = read_data();
-    cout<<"input number: \n";
+    cout<<"Введите номер записи для просмотра: \n";
     while(1){
         cin>>num;
         regex regexpr ("[0-9]+");
@@ -56,7 +56,7 @@ void view_data(){
         } else  cout << "Ошибка ввода!\n";
     }
    // i - номер записи для показа
-    string name = name_from_munber(i);
+    string name = name_from_number(i);
     person.read_person(name);
     person.print();
 }
@@ -74,7 +74,7 @@ unsigned read_data(){
     return v.size();
 }
 
-string name_from_munber(int num){
+string name_from_number(int num){
     system("cls");
     std::vector<std::string> v;
     QDir dirDB;
@@ -99,7 +99,7 @@ string num;
 unsigned i;
 unsigned number_person = read_data();
 while(1){
-    cout<<"Введите номер для удаления:\n";
+    cout<<"Введите номер записи для удаления:\n";
     cin>>num;
     regex regexpr ("[0-9]+");
     if (regex_match (num,regexpr)) {
@@ -110,7 +110,7 @@ while(1){
     } else  cout << "Ошибка ввода!\n";
 }
 // i - номер записи для удаления
-QString name_to_del = QString::fromStdString(name_from_munber(i));
+QString name_to_del = QString::fromStdString(name_from_number(i));
 delete_file(name_to_del);
-cout<<"person removed\n";
+cout<<"Запись удалена" <<"\n";
 }

@@ -26,7 +26,7 @@ unsigned read_data();
 void input_data();
 void edit_data();
 void view_data();
-std::string name_from_munber(int num);
+std::string name_from_number(int);
 void print_nation();
 void print_nation(std::vector<std::pair<unsigned,std::string>> &);
 void delete_file(QString &);
