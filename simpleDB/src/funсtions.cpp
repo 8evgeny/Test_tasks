@@ -16,9 +16,9 @@ void print_vector(vector<string>& v) {
 }
 
 void print_vector(vector<pair<unsigned,string>>& v) {
-    cout<<"Наций: "<<v.size()<<endl;
+    cout<<"Наций: "<<v.size()<<"   "<<flush<<"\n";
     for (auto element : v)  {
-    cout<<element.first<<" "<<element.second<<"\n";
+    cout<<element.first<<" "<<element.second<<"   "<<flush<<"\n";
  }
 //    cout<<'\n';
 
