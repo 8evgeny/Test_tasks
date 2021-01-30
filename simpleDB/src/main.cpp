@@ -12,20 +12,11 @@ return 0;
 
 int main() {
 
-    SetConsoleCP(CP_UTF8);
     SetConsoleOutputCP(CP_UTF8);
-    setvbuf( stdout, nullptr, _IONBF, 0 );
+//    setvbuf( stdout, nullptr, _IONBF, 0 );
 
     Buf_out bufout;
     std::cout.rdbuf( &bufout );
-
-//    std::cout << "Russian: абвгд" << std::flush;
-
-//    _setmode(_fileno(stdout), _O_U8TEXT);
-//  setlocale(LC_ALL, "Russian");
-//      system("chcp 65001");
-//      SetConsoleCP(65001);
-//      SetConsoleOutputCP(65001);
 
   string oper;
   while (1) {

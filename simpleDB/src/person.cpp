@@ -29,7 +29,7 @@ void Person::read_person(string& name) {
   fstream file;
   file.open(path, fstream::out | fstream::in | fstream::binary);
   if (!file.is_open())
-    cout << "error1 opening file\n";
+    cout << "error opening file\n";
   else {
     string name;
     string sex;
@@ -70,7 +70,7 @@ void Person::save_person() {
   fstream file;
   file.open(path, fstream::out | fstream::binary);
   if (!file.is_open())
-    cout << "error2 opening file\n";
+    cout << "error opening file\n";
   else {
     const QString DateFormat = "dd/MM/yyyy";
     file << this->name.toStdString() << "\n";
@@ -92,19 +92,19 @@ void Person::save_person() {
 }
 void Person::input_name() {
 //  SetConsoleCP(1251);
-  cout << "\nВведите имя :   "<<flush;
+  cout << "\nВведите имя латиницей :   "<<flush;
   cout<<endl;
   string iname;
-//  while (1) {
+  while (1) {
     cin >> iname;
-//    regex regexpr("[A-Za-zА-Яа-яёЁ]+");
-//    if (regex_match(iname, regexpr)) {
+    regex regexpr("[A-Za-z]+");
+    if (regex_match(iname, regexpr)) {
       this->name = QString::fromStdString(iname);
-    this->name = QString::fromLocal8Bit(iname.c_str());
-//      break;
-//    } else
-//      cout << "Ошибка ввода!\n";
-//  }
+//    this->name = QString::fromLocal8Bit(iname.c_str());
+      break;
+    } else
+      cout << "Ошибка ввода!\n";
+  }
   cout << "Имя: " << this->name.toStdString() << "\n";
 // SetConsoleCP(866);
 }
