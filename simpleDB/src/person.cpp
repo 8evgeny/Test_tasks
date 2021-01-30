@@ -86,6 +86,7 @@ void Person::save_person() {
       file << "no"
            << "\n";
     file << this->live << "\n";
+    system("cls");
     cout << "Данные сохранены в файле: " << this->name.toStdString() << "\n";
   }
   file.close();
