@@ -57,6 +57,7 @@ void view_data(){
     }
    // i - номер записи для показа
     string name = name_from_number(i);
+    cout<<"name:"<<name<<endl;
     person.read_person(name);
     person.print();
 }

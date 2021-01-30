@@ -25,10 +25,11 @@ void Person::print() {
 void Person::read_person(string& name) {
   QString patch_to_DB = read_patch_DB();
   string path = patch_to_DB.toStdString() + "/" + name;
+  cout<<"Путь: "<<path<<endl;
   fstream file;
   file.open(path, fstream::out | fstream::in | fstream::binary);
   if (!file.is_open())
-    cout << "error opening file\n";
+    cout << "error1 opening file\n";
   else {
     string name;
     string sex;
@@ -65,10 +66,11 @@ void Person::read_person(string& name) {
 void Person::save_person() {
   QString patch_to_DB = read_patch_DB();
   string path = patch_to_DB.toStdString() + "/" + this->name.toStdString();
+
   fstream file;
   file.open(path, fstream::out | fstream::binary);
   if (!file.is_open())
-    cout << "error opening file\n";
+    cout << "error2 opening file\n";
   else {
     const QString DateFormat = "dd/MM/yyyy";
     file << this->name.toStdString() << "\n";
@@ -89,32 +91,31 @@ void Person::save_person() {
   file.close();
 }
 void Person::input_name() {
-  cout << "\nВведите имя латиницей:   "<<flush;
+  SetConsoleCP(1251);
+  cout << "\nВведите имя :   "<<flush;
   cout<<endl;
-      SetConsoleCP(1251);
-      SetConsoleOutputCP(1251);
   string iname;
 //  while (1) {
     cin >> iname;
-    cout<<iname<<endl;
-//    regex regexpr("[A-Za-z]+");
+//    regex regexpr("[A-Za-zА-Яа-яёЁ]+");
 //    if (regex_match(iname, regexpr)) {
-//      this->name = QString::fromStdString(iname);
+      this->name = QString::fromStdString(iname);
     this->name = QString::fromLocal8Bit(iname.c_str());
 //      break;
 //    } else
 //      cout << "Ошибка ввода!\n";
 //  }
   cout << "Имя: " << this->name.toStdString() << "\n";
-      SetConsoleCP(866);
-      SetConsoleOutputCP(CP_UTF8);
+ SetConsoleCP(866);
 }
 
 void Person::input_sex() {
   string isex;
-  cout << "\nВведите пол:\n"
-       << "1 - Мужской\n"
-       << "2 - Женский\n";
+  cout << "\nВведите пол:   "<<flush;
+  cout<<endl;
+  cout<< "1 - Мужской\n"
+       << "2 - Женский   "<<flush;
+  cout<<endl;
   while (1) {
     cin >> isex;
     regex regexpr("[12]");
@@ -199,7 +200,7 @@ void Person::input_growth(int max_growth) {
 }
 void Person::input_weight(int max_weight) {
   string iweight;
-  cout << "\nВведите вес: \n";
+  cout << "Введите вес: \n";
   while (1) {
     cin >> iweight;
     regex regexpr("[1-9]{1}[0-9]{0,2}");
@@ -212,13 +213,14 @@ void Person::input_weight(int max_weight) {
     } else
       cout << "Ошибка ввода!\n";
   }
-  cout << "\nВес: " << this->weight << "\n";
+  cout << "\nВес: " << this->weight << "\n\n";
 }
 void Person::input_nation() {
   string inations;
   vector<pair<unsigned, string>> listnations;
   print_nation(listnations);
-  cout << "\nВведите национальность. Выберите номер из списка:\n";
+  cout << "Введите национальность. Выберите номер из списка   :"<<flush;
+  cout<<endl;
   while (1) {
     cin >> inations;
     regex regexpr("[1-9]{1}[0-9]{0,2}");

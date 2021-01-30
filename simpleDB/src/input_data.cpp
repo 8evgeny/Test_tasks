@@ -26,7 +26,8 @@ void input_data(){
  if(person.live){
       cout<<"Введите:\n"<<
             "1 - человек жив\n"<<
-            "2 - человек умер\n";
+            "2 - человек умер   "<<flush;
+      cout<<endl;
       while(1){
           cin>>ilive;
           regex regexpr ("[12]");
@@ -46,10 +47,11 @@ void input_data(){
   }
   system("cls");
   person.print();
-  cout <<"Введенные данные верны?:\n"<<
-         "Введите :"<<
+  cout <<"Введенные данные верны?\n"<<
+         "Введите :\n"<<
          "1 - cохраненить данные\n"<<
-         "2 - не сохранять\n";
+         "2 - не сохранять   "<<flush;
+  cout<<endl;
   while(1){
       cin>>isave;
       regex regexpr ("[12]");
