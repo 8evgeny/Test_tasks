@@ -13,7 +13,7 @@ void input_data(){
  current_date=QDate::currentDate();
  cout<<"Текущая дата: "<<current_date.toString().toStdString()<<"\n";
 
-  int days = person.bithday.daysTo(current_date);
+  int days = static_cast<int>(person.bithday.daysTo(current_date));
   int age = days/365;
   if (age>max.max_long_life) {
       person.live = false;
@@ -41,9 +41,9 @@ void input_data(){
       }
   }
 
-  if (person.live) person.age = age;
+  if (person.live) person.age = static_cast<unsigned>(age);
   else{
-      person.age = person.bithday.daysTo(person.death)/365;
+      person.age = static_cast<unsigned>(person.bithday.daysTo(person.death)/365);
   }
   system("cls");
   person.print();

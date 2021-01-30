@@ -6,7 +6,7 @@
 #include <iostream>
 #include <regex>
 #include <fstream>
-#include <Windows.h>
+#include <windows.h>
 #include "person.h"
 
 const QString settingsFile = "configDB.ini";
