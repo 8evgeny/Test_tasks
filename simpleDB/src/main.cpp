@@ -11,7 +11,7 @@ return 0;
 };
 
 int main() {
-
+//ф-я 2 без выхода!!
     SetConsoleOutputCP(CP_UTF8);
 //    setvbuf( stdout, nullptr, _IONBF, 0 );
 
@@ -20,24 +20,23 @@ int main() {
 
   string oper;
   while (1) {
-    cout << "1 - Отобразить все записи базы данных:\n"
-         << "2 - Просмотр существующей записи:\n"
-         << "3 - Ввод новой записи:\n"
-         << "4 - Редактирование существующей записи:\n"
-         << "5 - Удаление записи:\n"
-         << "6 - Завершить работу:\n\n"
+    cout << "1 - Просмотр существующиx записей:\n"
+         << "2 - Ввод новой записи:\n"
+         << "3 - Редактирование существующей записи:\n"
+         << "4 - Удаление записи:\n"
+         << "5 - Завершить работу:\n\n"
          << "Введите операцию: "<<flush;
     cout<<endl;
 
     cin >> oper;
     regex regexpr("[123456]");
     if (regex_match(oper, regexpr)) {
-      if (oper == "1") read_data();
-      if (oper == "2") view_data();
-      if (oper == "3") input_data();
-      if (oper == "4") edit_data();
-      if (oper == "5") remove_data();
-      if (oper == "6") return 0;
+//      if (oper == "1") read_data();
+      if (oper == "1") view_data();
+      if (oper == "2") input_data();
+      if (oper == "3") edit_data();
+      if (oper == "4") remove_data();
+      if (oper == "5") return 0;
     } else {
 
           cout << "Повторите ввод  "<<flush;

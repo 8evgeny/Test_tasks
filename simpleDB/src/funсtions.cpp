@@ -37,21 +37,24 @@ void view_data(){
     string num;
     unsigned i;
     unsigned number_person = read_data();
-    cout<<"Введите номер записи для просмотра: \n";
+    cout<<"Введите номер записи для просмотра: \n"<<
+    "Для возврата введите 0   "<<flush;
+    cout<<endl;
     while(1){
         cin>>num;
         regex regexpr ("[0-9]+");
         if (regex_match (num,regexpr)) {
             i = static_cast<unsigned>(stoi(num));
-            if((i <= number_person) && (i > 0)) {
+            if(i <= number_person) {
             break;
             }else cout << "Ошибка ввода!\n";
         } else  cout << "Ошибка ввода!\n";
     }
    // i - номер записи для показа
+    if (i!=0){
     string name = name_from_number(static_cast<int>(i));
     person.read_person(name);
-    person.print();
+    person.print();}
 }
 unsigned read_data(){
     system("cls");
