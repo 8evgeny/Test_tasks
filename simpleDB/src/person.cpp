@@ -38,9 +38,13 @@ void Person::read_person(string& name) {
   in>>this->growth;
   in>>this->weight;
   in>>this->nation ;
-
-
-
+  QString bithday,death,live;
+  in>>bithday;
+  in>>death;
+  this->bithday = QDate::fromString(bithday);
+  in>>live ;
+  this->live = stoi(live.toStdString());
+  if (this->live == 0) this->death = QDate::fromString(death);
 
 //  fstream file;
 //  file.open(path, fstream::out | fstream::in | fstream::binary);
@@ -80,19 +84,25 @@ void Person::read_person(string& name) {
 //  file.close();
 }
 void Person::save_person() {
+
   QString patch_to_DB = read_patch_DB();
   string path = patch_to_DB.toStdString() + "/" + this->name.toStdString();
-QString full_name_file = QString::fromStdString(path);
-QFile qfile;
-qfile.setFileName(full_name_file);
-qfile.open(QIODevice::WriteOnly | QIODevice::Text);
-QTextStream out(&qfile);
-out<<this->name<<"\n";
-out<<this->sex<<"\n";
-out<<this->age<<"\n";
-out<<this->growth<<"\n";
-out<<this->weight<<"\n";
-out<<this->nation<<"\n";
+  QString full_name_file = QString::fromStdString(path);
+  QFile qfile;
+  qfile.setFileName(full_name_file);
+  qfile.open(QIODevice::WriteOnly | QIODevice::Text);
+  QTextStream out(&qfile);
+  out<<this->name<<"\n";
+  out<<this->sex<<"\n";
+  out<<this->age<<"\n";
+  out<<this->growth<<"\n";
+  out<<this->weight<<"\n";
+  out<<this->nation<<"\n";
+  const QString DateFormat = "dd/MM/yyyy";
+  out<<this->bithday.toString(DateFormat)<<"\n";
+  if (!this->live) out<<this->death.toString(DateFormat) << "\n";
+  if (this->live) out<<"no"<<"\n";
+  out << this->live << "\n";
 
 //  fstream file;
 //  file.open(path, fstream::out | fstream::binary);
