@@ -26,87 +26,115 @@ void Person::read_person(string& name) {
   QString patch_to_DB = read_patch_DB();
   string path = patch_to_DB.toStdString() + "/" + name;
   cout<<"Путь"<<path<<endl;
-  fstream file;
-  file.open(path, fstream::out | fstream::in | fstream::binary);
-  if (!file.is_open())
-    cout << "error opening file\n";
-  else {
-    string name;
-    string sex;
-    string age;
-    string growth;
-    string weight;
-    string nation;
-    string bithday;
-    string death;
-    string live;
-    const QString DateFormat = "dd/MM/yyyy";
-    file >> name;
-    file >> sex;
-    file >> age;
-    file >> growth;
-    file >> weight;
-    file >> nation;
-    file >> bithday;
-    file >> death;
-    file >> live;
-    cout << "\nПрочитана запись: " << name << "\n";
-    this->name = QString::fromStdString(name);
-    this->sex = QString::fromStdString(sex);
-    this->age = static_cast<unsigned>(stoi(age));
-    this->growth = static_cast<unsigned>(stoi(growth));
-    this->weight = static_cast<unsigned>(stoi(weight));
-    this->nation = QString::fromStdString(nation);
-    this->bithday = string_toqtate(bithday);
-    this->live = stoi(live);
-    if (this->live == 0) this->death = string_toqtate(death);
-  }
-  file.close();
+
+  QFile qfile;
+  QString full_name_file = QString::fromStdString(path);
+  qfile.setFileName(full_name_file);
+  qfile.open(QIODevice::ReadOnly | QIODevice::Text);
+  QTextStream in(&qfile);
+  in>>this->name ;
+  in>>this->sex;
+  in>>this->age;
+  in>>this->growth;
+  in>>this->weight;
+  in>>this->nation ;
+
+
+
+
+//  fstream file;
+//  file.open(path, fstream::out | fstream::in | fstream::binary);
+//  if (!file.is_open())
+//    cout << "error opening file\n";
+//  else {
+//    string name;
+//    string sex;
+//    string age;
+//    string growth;
+//    string weight;
+//    string nation;
+//    string bithday;
+//    string death;
+//    string live;
+//    const QString DateFormat = "dd/MM/yyyy";
+//    file >> name;
+//    file >> sex;
+//    file >> age;
+//    file >> growth;
+//    file >> weight;
+//    file >> nation;
+//    file >> bithday;
+//    file >> death;
+//    file >> live;
+//    cout << "\nПрочитана запись: " << name << "\n";
+//    this->name = QString::fromStdString(name);
+//    this->sex = QString::fromStdString(sex);
+//    this->age = static_cast<unsigned>(stoi(age));
+//    this->growth = static_cast<unsigned>(stoi(growth));
+//    this->weight = static_cast<unsigned>(stoi(weight));
+//    this->nation = QString::fromStdString(nation);
+//    this->bithday = string_toqtate(bithday);
+//    this->live = stoi(live);
+//    if (this->live == 0) this->death = string_toqtate(death);
+//  }
+//  file.close();
 }
 void Person::save_person() {
   QString patch_to_DB = read_patch_DB();
   string path = patch_to_DB.toStdString() + "/" + this->name.toStdString();
+QString full_name_file = QString::fromStdString(path);
+QFile qfile;
+qfile.setFileName(full_name_file);
+qfile.open(QIODevice::WriteOnly | QIODevice::Text);
+QTextStream out(&qfile);
+out<<this->name<<"\n";
+out<<this->sex<<"\n";
+out<<this->age<<"\n";
+out<<this->growth<<"\n";
+out<<this->weight<<"\n";
+out<<this->nation<<"\n";
 
-  fstream file;
-  file.open(path, fstream::out | fstream::binary);
-  if (!file.is_open())
-    cout << "error opening file\n";
-  else {
-    const QString DateFormat = "dd/MM/yyyy";
-    file << this->name.toStdString() << "\n";
-    file << this->sex.toStdString() << "\n";
-    file << this->age << "\n";
-    file << this->growth << "\n";
-    file << this->weight << "\n";
-    file << this->nation.toStdString() << "\n";
-    file << this->bithday.toString(DateFormat).toStdString() << "\n";
-    if (!this->live)
-      file << this->death.toString(DateFormat).toStdString() << "\n";
-    if (this->live)
-      file << "no"
-           << "\n";
-    file << this->live << "\n";
+//  fstream file;
+//  file.open(path, fstream::out | fstream::binary);
+//  if (!file.is_open())
+//    cout << "error opening file\n";
+//  else {
+//    const QString DateFormat = "dd/MM/yyyy";
+//    file << this->name.toStdString() << "\n";
+//    file << this->sex.toStdString() << "\n";
+//    file << this->age << "\n";
+//    file << this->growth << "\n";
+//    file << this->weight << "\n";
+//    file << this->nation.toStdString() << "\n";
+//    file << this->bithday.toString(DateFormat).toStdString() << "\n";
+//    if (!this->live)
+//      file << this->death.toString(DateFormat).toStdString() << "\n";
+//    if (this->live)
+//      file << "no"
+//           << "\n";
+//    file << this->live << "\n";
     cout << "Данные сохранены в файле: " << this->name.toStdString() << "\n";
-  }
-  file.close();
+//  }
+//  file.close();
+
 }
 void Person::input_name() {
-//  SetConsoleCP(1251);
+  SetConsoleCP(1251);
   cout << "\nВведите имя латиницей :   "<<flush;
   cout<<endl;
   string iname;
-  while (1) {
+//  while (1) {
     cin >> iname;
     regex regexpr("[A-Za-z]+");
-    if (regex_match(iname, regexpr)) {
-      this->name = QString::fromStdString(iname);
-//    this->name = QString::fromLocal8Bit(iname.c_str());
-      break;
-    } else
-      cout << "Ошибка ввода!\n";
-  }
+//    if (regex_match(iname, regexpr)) {
+//      this->name = QString::fromStdString(iname);
+    this->name = QString::fromLocal8Bit(iname.c_str());
+//      break;
+//    } else
+//      cout << "Ошибка ввода!\n";
+//  }
   cout << "Имя: " << this->name.toStdString() << "\n";
-// SetConsoleCP(866);
+ SetConsoleCP(866);
 }
 
 void Person::input_sex() {

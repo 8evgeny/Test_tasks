@@ -3,6 +3,7 @@
 #include <QDate>
 #include <QDir>
 #include <QSettings>
+#include <QTextStream>
 #include <iostream>
 #include <regex>
 #include <fstream>
