@@ -27,7 +27,6 @@ void edit_data(){
     string name = name_from_number(static_cast<int>(i));
     person.read_person(name);
     person.print();
-m1:
  cout<<"Введите номер поля для редактирования: \n";
  cout<<"Для возврата введите 0 \n";
  string num;
@@ -61,6 +60,7 @@ m1:
    }
    if(stoi(num)==8) {
     person.input_death();
+    person.live = 0;
     person.age = static_cast<unsigned>(person.bithday.daysTo(person.death)/365);
    }
   person.save_person();

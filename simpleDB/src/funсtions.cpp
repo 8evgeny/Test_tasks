@@ -88,18 +88,22 @@ string num;
 unsigned i;
 unsigned number_person = read_data();
 while(1){
+    if(number_person == 0){cout<<"Нет записей\n"; break;}
     cout<<"Введите номер записи для удаления:\n";
+    cout<<"Для возврата введите 0 \n";
     cin>>num;
     regex regexpr ("[0-9]+");
     if (regex_match (num,regexpr)) {
         i = static_cast<unsigned>(stoi(num));
-        if((i <= number_person) && (i > 0)) {
+        if(i <= number_person) {
         break;
         }else cout << "Ошибка ввода!\n";
     } else  cout << "Ошибка ввода!\n";
 }
-// i - номер записи для удаления
-QString name_to_del = QString::fromStdString(name_from_number(static_cast<int>(i)));
-delete_file(name_to_del);
-cout<<"Запись удалена" <<"\n";
+ // i - номер записи для удаления
+ if(i!=0){
+ QString name_to_del = QString::fromStdString(name_from_number(static_cast<int>(i)));
+ delete_file(name_to_del);
+ cout<<"Запись удалена" <<"\n";
+ }
 }

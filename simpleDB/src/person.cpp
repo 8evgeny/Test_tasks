@@ -79,11 +79,8 @@ void Person::save_person() {
     file << this->weight << "\n";
     file << this->nation.toStdString() << "\n";
     file << this->bithday.toString(DateFormat).toStdString() << "\n";
-    if (!this->live)
-      file << this->death.toString(DateFormat).toStdString() << "\n";
-    if (this->live)
-      file << "no"
-           << "\n";
+    if (!this->live) file << this->death.toString(DateFormat).toStdString() << "\n";
+    if (this->live) file << "no" << "\n";
     file << this->live << "\n";
     system("cls");
     cout << "Данные сохранены в файле: " << this->name.toStdString() << "\n   "<<flush;
