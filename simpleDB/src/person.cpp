@@ -129,14 +129,14 @@ void Person::input_sex() {
 }
 QDate Person::input_bithday() {
   string ibighday;
-  cout << "\nВведите дату рождения в формате DD/MM/YYYY или DD-MM-YYYY:\n";
+  cout << "\nВведите дату рождения DD-MM-YYYY :\n";
 
   const QString DateFormat = "dd/MM/yyyy";
   while (1) {
     cin >> ibighday;
     regex regexpr(
-        "(0[1-9]|[12][0-9]|3[01])[/-](0?[1-9]|1[12])[/-"
-        "](1[0-9][0-9]{2}|[2][0][0-9]{2})");
+        "(0[1-9]|[12][0-9]|3[01])[-/.](0[1-9]|1[012])[-/.](19|20)\[0-9]\[0-9]"
+    );
     if (regex_match(ibighday, regexpr)) {
       this->bithday = string_toqtate(ibighday);
       break;
@@ -149,14 +149,14 @@ QDate Person::input_bithday() {
 }
 QDate Person::input_death() {
   string ideath;
-  cout << "\nВведите дату смерти в формате DD/MM/YYYY или DD-MM-YYYY:\n";
+  cout << "\nВведите дату смерти DD-MM-YYYY:\n";
   const QString DateFormat = "dd/MM/yyyy";
   QDate death, current;
   while (1) {
     cin >> ideath;
     regex regexpr(
-        "(0[1-9]|[12][0-9]|3[01])[/-](0?[1-9]|1[12])[/-"
-        "](1[0-9][0-9]{2}|[2][0][0-9]{2})");
+        "(0[1-9]|[12][0-9]|3[01])[-/.](0[1-9]|1[012])[-/.](19|20)\[0-9]\[0-9]"
+    );
     if (regex_match(ideath, regexpr)) {
       string day = ideath.substr(0, 2);
       string mounth = ideath.substr(3, 2);
