@@ -25,7 +25,7 @@ void Person::print() {
 void Person::read_person(string& name) {
   QString patch_to_DB = read_patch_DB();
   string path = patch_to_DB.toStdString() + "/" + name;
-  cout<<"Путь: "<<path<<endl;
+  cout<<"Путь"<<path<<endl;
   fstream file;
   file.open(path, fstream::out | fstream::in | fstream::binary);
   if (!file.is_open())
@@ -91,7 +91,7 @@ void Person::save_person() {
   file.close();
 }
 void Person::input_name() {
-  SetConsoleCP(1251);
+//  SetConsoleCP(1251);
   cout << "\nВведите имя :   "<<flush;
   cout<<endl;
   string iname;
@@ -106,7 +106,7 @@ void Person::input_name() {
 //      cout << "Ошибка ввода!\n";
 //  }
   cout << "Имя: " << this->name.toStdString() << "\n";
- SetConsoleCP(866);
+// SetConsoleCP(866);
 }
 
 void Person::input_sex() {
