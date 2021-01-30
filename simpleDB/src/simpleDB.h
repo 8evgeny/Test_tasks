@@ -14,6 +14,7 @@ void fill_vector(QStringList &, std::vector<std::string> &);
 void print_vector(std::vector<std::string>&);
 void print_vector(std::vector<std::pair<unsigned,std::string>>&);
 unsigned read_data();
+void work_with_DB();
 void input_data();
 void edit_data();
 void view_data();
