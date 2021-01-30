@@ -52,9 +52,9 @@ void Person::read_person(string& name) {
     cout << "\nПрочитана запись: " << name << "\n";
     this->name = QString::fromStdString(name);
     this->sex = QString::fromStdString(sex);
-    this->age = stoi(age);
-    this->growth = stoi(growth);
-    this->weight = stoi(weight);
+    this->age = static_cast<unsigned>(stoi(age));
+    this->growth = static_cast<unsigned>(stoi(growth));
+    this->weight = static_cast<unsigned>(stoi(weight));
     this->nation = QString::fromStdString(nation);
     this->bithday = string_toqtate(bithday);
     this->live = stoi(live);
@@ -159,8 +159,8 @@ QDate Person::input_death() {
       death.setDate(stoi(year), stoi(mounth), stoi(day));
       current = QDate::currentDate();
       QDate bithday = this->bithday;
-      int days_from_bithday = bithday.daysTo(death);
-      int days_to_current = death.daysTo(current);
+      int days_from_bithday = static_cast<int>(bithday.daysTo(death));
+      int days_to_current = static_cast<int>(death.daysTo(current));
       if ((days_from_bithday > 0) && (days_to_current > 0)) {
         this->death = death;
         break;
@@ -181,7 +181,7 @@ void Person::input_growth(int max_growth) {
     regex regexpr("[1-9]{1}[0-9]{0,2}");
     if (regex_match(igrowth, regexpr)) {
       if (stoi(igrowth) <= max_growth) {
-        this->growth = stoi(igrowth);
+        this->growth = static_cast<unsigned>(stoi(igrowth));
         break;
       } else
         cout << "Ошибка ввода!\n";
@@ -198,7 +198,7 @@ void Person::input_weight(int max_weight) {
     regex regexpr("[1-9]{1}[0-9]{0,2}");
     if (regex_match(iweight, regexpr)) {
       if (stoi(iweight) <= max_weight) {
-        this->weight = stoi(iweight);
+        this->weight = static_cast<unsigned>(stoi(iweight));
         break;
       } else
         cout << "Ошибка ввода!\n";
@@ -217,7 +217,7 @@ void Person::input_nation() {
     regex regexpr("[1-9]{1}[0-9]{0,2}");
     if (regex_match(inations, regexpr)) {
       if (stold(inations) <= listnations.size()) {
-        string nation = listnations.at(stoi(inations) - 1).second;
+        string nation = listnations.at(static_cast<ulong>(stoi(inations) - 1)).second;
         this->nation = QString::fromStdString(nation);
         break;
       } else
