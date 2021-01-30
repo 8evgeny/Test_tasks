@@ -8,6 +8,7 @@ class Buf_out: public std::stringbuf {
  return 0;
  }
 };
+
 int main() {
  SetConsoleOutputCP(CP_UTF8);
  Buf_out bufout;
