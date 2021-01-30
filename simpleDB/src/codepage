@@ -261,3 +261,6 @@ https://github.com/ilyachalov/lafore-book-examples/blob/master/Lafore-examples/c
 https://stackoverflow.com/questions/9859020/windows-unicode-c-stream-output-failure
 
 https://stackoverflow.com/questions/4775437/read-unicode-utf-8-file-into-wstring
+
+
+!!!!! Пример  !!!!!    https://en.cppreference.com/w/cpp/locale/codecvt_utf16
