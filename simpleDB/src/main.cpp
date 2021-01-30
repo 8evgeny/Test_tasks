@@ -16,7 +16,7 @@ return 0;
 
 int main() {
 
-    SetConsoleCP(CP_UTF8);
+//    SetConsoleCP(CP_UTF8);
     SetConsoleOutputCP(CP_UTF8);
     setvbuf( stdout, nullptr, _IONBF, 0 );
 

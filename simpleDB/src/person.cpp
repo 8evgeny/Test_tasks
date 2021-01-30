@@ -91,18 +91,25 @@ void Person::save_person() {
 void Person::input_name() {
   cout << "\nВведите имя латиницей:   "<<flush;
   cout<<endl;
+      SetConsoleCP(1251);
+      SetConsoleOutputCP(1251);
   string iname;
-  while (1) {
+//  while (1) {
     cin >> iname;
-    regex regexpr("[A-Za-z]+");
-    if (regex_match(iname, regexpr)) {
-      this->name = QString::fromStdString(iname);
-      break;
-    } else
-      cout << "Ошибка ввода!\n";
-  }
+    cout<<iname<<endl;
+//    regex regexpr("[A-Za-z]+");
+//    if (regex_match(iname, regexpr)) {
+//      this->name = QString::fromStdString(iname);
+    this->name = QString::fromLocal8Bit(iname.c_str());
+//      break;
+//    } else
+//      cout << "Ошибка ввода!\n";
+//  }
   cout << "Имя: " << this->name.toStdString() << "\n";
+      SetConsoleCP(866);
+      SetConsoleOutputCP(CP_UTF8);
 }
+
 void Person::input_sex() {
   string isex;
   cout << "\nВведите пол:\n"
