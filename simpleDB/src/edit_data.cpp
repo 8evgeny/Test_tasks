@@ -1,32 +1,32 @@
 #include "simpleDB.h"
 using namespace std;
-void edit_data(){
-    Person person;
-    auto max = person.read_max();
-    unsigned i;
-    string inum;
-    system("cls");
-    cout<<"Редактирование данных о человеке:\n";
-    while(1){
-    unsigned number_person = read_data();
-    cout<<"Введите номер редактируемой записи:\n"<<
+ void edit_data(){
+ Person person;
+ auto max = person.read_max();
+ unsigned i;
+ string inum;
+ system("cls");
+ cout<<"Редактирование данных о человеке:\n";
+ while(1){
+  unsigned number_person = read_data();
+  cout<<"Введите номер редактируемой записи:\n"<<
         "Для возврата введите 0   "<<flush;
-    cout<<endl;
-    while(1){
-        cin>>inum;
-        regex regexpr ("[0-9]+");
-        if (regex_match (inum,regexpr)) {
-            i = static_cast<unsigned>(stoi(inum));
-            if(i <= number_person) {
-                break;
-            }else cout << "Ошибка ввода!\n";
-        } else  cout << "Ошибка ввода!\n";
-    }
-    if(i == 0){system("cls"); break;}
-    // i - номер записи для показа
-    string name = name_from_number(static_cast<int>(i));
-    person.read_person(name);
-    person.print();
+  cout<<endl;
+   while(1){
+    cin>>inum;
+    regex regexpr ("[0-9]+");
+    if (regex_match (inum,regexpr)) {
+     i = static_cast<unsigned>(stoi(inum));
+     if(i <= number_person) {
+      break;
+     }else cout << "Ошибка ввода!\n";
+    } else  cout << "Ошибка ввода!\n";
+   }
+   if(i == 0){system("cls"); break;}
+   // i - номер записи для показа
+   string name = name_from_number(static_cast<int>(i));
+   person.read_person(name);
+   person.print();
  cout<<"Введите номер поля для редактирования: \n";
  cout<<"Для возврата введите 0 \n";
  string num;
@@ -35,10 +35,10 @@ void edit_data(){
   regex regexpr ("[01245678]");
   if (regex_match (num,regexpr)) {
    if(stoi(num)==1) {
-       QString old_name = person.name;
-       delete_file(old_name);
-       person.input_name();
-       }
+    QString old_name = person.name;
+    delete_file(old_name);
+    person.input_name();
+   }
    if(stoi(num)==2) person.input_sex();
    if(stoi(num)==4) person.input_growth(max.max_growth);
    if(stoi(num)==5) person.input_weight(max.max_weight);
@@ -48,27 +48,26 @@ void edit_data(){
    QDate current_date=QDate::currentDate();
    int days = static_cast<int>(person.bithday.daysTo(current_date));
    int age = days/365;
-    if (person.live) {
-     if (age>max.max_long_life) {
-         person.live = false;
-         person.input_death();
-      }
+   if (person.live) {
+    if (age>max.max_long_life) {
+     person.live = false;
+     person.input_death();
     }
-   //меняем age
-    if(person.live) person.age = static_cast<unsigned>(person.bithday.daysTo(current_date)/365);
-    else person.age = static_cast<unsigned>(person.bithday.daysTo(person.death)/365);
+   }
+//меняем age
+   if(person.live) person.age = static_cast<unsigned>(person.bithday.daysTo(current_date)/365);
+   else person.age = static_cast<unsigned>(person.bithday.daysTo(person.death)/365);
    }
    if(stoi(num)==8) {
     person.input_death();
     person.live = 0;
     person.age = static_cast<unsigned>(person.bithday.daysTo(person.death)/365);
    }
-  person.save_person();
+   person.save_person();
    break;
-        }else  cout << "Ошибка ввода!\n";
-      }
-    }
-
+   }else  cout << "Ошибка ввода!\n";
+  }
+ }
 }
 
 

@@ -7,7 +7,6 @@ Person::Person() {
   weight = 0;
   growth = 0;
 };
-
 Person::~Person(){};
 void Person::print() {
   std::cout << "1\tИмя: " << name.toStdString() << "\n"
